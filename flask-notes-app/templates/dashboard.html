@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Dashboard</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>My Notes 📝</h1>
+
+    <a href="/add">
+        <button>Add Note</button>
+    </a>
+
+    <a href="/logout">
+        <button>Logout</button>
+    </a>
+
+    <ul>
+
+        {% for note in notes %}
+
+            <li>
+
+                {{ note.content }}
+
+                <a href="/delete/{{ note.id }}">
+                    <button>Delete</button>
+                </a>
+
+            </li>
+
+        {% endfor %}
+
+    </ul>
+
+</div>
+
+</body>
+</html>
